@@ -48,3 +48,6 @@ lerna-debug.log*
 .tool-versions
 
 /prisma/migrations/*
+
+
+dados
