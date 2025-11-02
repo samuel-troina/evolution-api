@@ -3,7 +3,7 @@ services:
   evolution-api:
     container_name: evolution-api
     image: evoapicloud/evolution-api:latest
-    restart: always
+    restart: unless-stopped 
     depends_on:
       - redis
       - postgres
@@ -20,6 +20,7 @@ services:
 
   redis:
     image: redis:latest
+    restart: unless-stopped 
     networks:
       - evolution-net
     container_name: redis
@@ -43,7 +44,7 @@ services:
       "-c", "effective_cache_size=1GB",
       "-c", "work_mem=4MB"
     ]
-    restart: always
+    restart: unless-stopped 
     #ports:
     #  - 5432:5432
     environment:
